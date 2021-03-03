@@ -4,14 +4,16 @@ import authGetters from './authGetters';
 
 export default {
   namespaced: true,
-  state: {},
-  mutations: {
-    authMutations,
+  state() {
+    return {
+      id: 0,
+      username: '',
+      email: '',
+      registrationError: false,
+      errorMsg: '',
+    };
   },
-  actions: {
-    authActions,
-  },
-  getters: {
-    authGetters,
-  },
+  mutations: authMutations,
+  actions: authActions,
+  getters: authGetters,
 };
