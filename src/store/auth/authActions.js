@@ -22,7 +22,25 @@ export default {
       const createUser = await userRef.add(userData);
       commit('authSuccess', createUser);
     } catch (err) {
-        commit('authFail', err);
+      commit('authFail', err);
+    }
+  },
+  async login({ commit }, user) {
+    try {
+      const loggedIn = await firebase
+        .auth()
+        .signInWithEmailAndPassword(user.email, user.password);
+      console.log(loggedIn);
+
+      const userData = {
+        id: loggedIn.user.uid,
+        username: user.username,
+        email: user.email,
+      };
+
+      commit('authSuccess', userData);
+    } catch (err) {
+      commit('authFail', err);
     }
   },
 };
