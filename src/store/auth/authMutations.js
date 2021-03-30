@@ -6,11 +6,13 @@ export default {
     state.email = user.email;
     state.username = user.username;
     state.registrationError = false;
+    state.isLoggedIn = true;
     state.errorMsg = '';
     router.push({ path: 'home' });
   },
   authFail(state, error) {
     state.registrationError = true;
+    state.isLoggedIn = true;
     state.errorMsg = error.message;
   },
 };

@@ -10,6 +10,7 @@ export default {
       username: '',
       email: '',
       registrationError: false,
+      isLoggedIn: false,
       errorMsg: '',
     };
   },
