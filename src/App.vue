@@ -1,14 +1,16 @@
 <template>
-  <img
-    alt="App logo"
-    src="https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1611488325/pantry/cooking-robot_xdaw7k.png"
-  />
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/ingredients">Ingredients</router-link>
-  </div>
+  <the-header />
   <router-view />
 </template>
+
+<script>
+import TheHeader from '@/components/ui/TheHeader.vue';
+export default {
+  components: {
+    TheHeader,
+  },
+};
+</script>
 
 <style>
 :root {

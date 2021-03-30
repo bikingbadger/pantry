@@ -6,10 +6,9 @@ export default {
   namespaced: true,
   state() {
     return {
-      id: 0,
-      username: '',
-      email: '',
+      currentUser: { id: 0, username: '', email: '' },
       registrationError: false,
+      isLoggedIn: false,
       errorMsg: '',
     };
   },

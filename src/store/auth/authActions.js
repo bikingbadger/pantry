@@ -9,7 +9,6 @@ export default {
       const registered = await firebase
         .auth()
         .createUserWithEmailAndPassword(user.email, user.password);
-      console.log(registered);
 
       // Create userdata
       const userData = {
@@ -30,7 +29,6 @@ export default {
       const loggedIn = await firebase
         .auth()
         .signInWithEmailAndPassword(user.email, user.password);
-      console.log(loggedIn);
 
       const userData = {
         id: loggedIn.user.uid,
@@ -42,5 +40,9 @@ export default {
     } catch (err) {
       commit('authFail', err);
     }
+  },
+  async logout({ commit }) {
+    await firebase.auth().signOut();
+    commit('logout');
   },
 };
